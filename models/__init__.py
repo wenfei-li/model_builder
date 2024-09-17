@@ -1,7 +1,7 @@
-from model import Model
-from structurebasedmodel import StructureBasedModel
-from awsemmodel import AwsemModel
-    
-import mappings 
-import potentials 
-import output
+from . import awsemmodel
+from . import model
+from . import structurebasedmodel
+
+from . import potentials
+from . import output
+from . import mappings

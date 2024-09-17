@@ -3,8 +3,8 @@ import numpy as np
 import mdtraj as md
 from mdtraj.core.topology import Topology
 
-import util
-import atom_types
+from model_builder.models.mappings import util
+from model_builder.models.mappings import atom_types
 
 class CalphaMapping(object):
     r"""Calpha representation mapping"""

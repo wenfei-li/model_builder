@@ -4,8 +4,8 @@ import numpy as np
 import mdtraj as md
 from mdtraj.core.topology import Topology
 
-import util
-import atom_types
+from model_builder.models.mappings import util
+from model_builder.models.mappings import atom_types
 
 class CalphaCbetaMapping(object):
     """Calpha Cbeta center-of-mass representation mapping"""
@@ -95,8 +95,10 @@ class CalphaCbetaMapping(object):
                 tot_mass = np.sum(sc_mass)
 
                 res_frms = traj.xyz[:,old_idxs,:]
-                sc_com_xyz = np.array(map(lambda frm: \
-                        np.sum(frm.T*sc_mass/tot_mass, axis=1), res_frms))
+                sc_com_xyz = sc_com_xyz = np.array([
+                    np.sum(frm.T * sc_mass / tot_mass, axis=1)
+                    for frm in res_frms
+                    ])
 
                 cacb_xyz[:,new_idx,:] = sc_com_xyz
 

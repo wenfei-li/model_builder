@@ -1,6 +1,6 @@
 
 import numpy as np
-import models
+from model_builder import models
 
 def get_pairwise_params(pairwise_params_file,model_params_file):
     """ Grab pairwise_params from file. """

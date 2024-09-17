@@ -4,7 +4,7 @@ import numpy as np
 
 import mdtraj as md
 
-import viz_bonds
+from model_builder.models.output import viz_bonds
 
 SUPPORTED_VERSIONS = ["4.5.4","4.5.4_sbm","4.6.5","4.6.5_sbm"]
 
@@ -145,7 +145,8 @@ class GromacsFiles(object):
             self.model.ref_traj.save("conf.gro")
 
         with open("conf.gro", "r") as fin:
-            temp = reduce(lambda x,y: x+y, fin.readlines()[:-1])
+            lines = fin.readlines()[:-1]
+            temp = ''.join(lines)
             temp += "{:>10f}{:>10f}{:>10f}\n".format(box_xyz[0], box_xyz[1], box_xyz[2])
 
         with open("conf.gro", "w") as fout:

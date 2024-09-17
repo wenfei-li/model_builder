@@ -5,11 +5,11 @@ import numpy as np
 import re
 import os
 import shutil
-import ConfigParser
+import configparser
 import mdtraj as md
 
-from models import StructureBasedModel as SBM
-from models import AwsemModel as AwsemModel
+from model_builder.models.structurebasedmodel import StructureBasedModel as SBM
+from model_builder.models.awsemmodel import AwsemModel as AwsemModel
 
 #############################################################################
 # Helper functions to load in models from .ini files
@@ -192,7 +192,7 @@ def load_config(name):
 
     if not os.path.exists(name):
         raise IOError("%s doesn't exist!" % name)
-    config = ConfigParser.SafeConfigParser(allow_no_value=True)
+    config = configparser.SafeConfigParser(allow_no_value=True)
     config.read(name)
 
     # Populate all fields as None
@@ -330,7 +330,7 @@ def _empty_model_opts():
 def parse_pairwise_params(pairwise_file):
     """ parse the pairwise_params file and output necessary values"""
 
-    from models.potentials.pairwise import PAIR_POTENTIALS
+    from model_builder.models.potentials.pairwise import PAIR_POTENTIALS
 
     fopen = open(pairwise_file, "r")
     pairs = []

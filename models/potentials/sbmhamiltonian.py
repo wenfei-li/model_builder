@@ -2,9 +2,9 @@ import numpy as np
 
 import mdtraj as md
 
-import util
+from model_builder.models.potentials import util
 
-from hamiltonian import Hamiltonian
+from model_builder.models.potentials.hamiltonian import Hamiltonian
 
 class StructureBasedHamiltonian(Hamiltonian):
 

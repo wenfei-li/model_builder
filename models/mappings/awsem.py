@@ -3,8 +3,8 @@ import numpy as np
 import mdtraj as md
 from mdtraj.core.topology import Topology
 
-import util
-import atom_types
+from model_builder.models.mappings import util
+from model_builder.models.mappings import atom_types
         
 
 # weights for creating glycine hydrogens (H-Beta, HB).
@@ -420,7 +420,6 @@ if __name__ == "__main__":
     _N_coeff = np.array([0.48318, 0.70328, -0.18643])  # CA_i-1, CA_i, O_i-1
     _C_coeff = np.array([0.44365, 0.23520, 0.32115])   # CA_i, CA_i+1, O_i
     _H_coeff = np.array([0.84100, 0.89296, -0.73389])  # CA_i-1, CA_i, O_i-1
-
 
     # solve for backbone N and C atoms.
     N_idxs = np.array([[ traj.topology.select("resid {} and name CA".format(res_idxs[i] - 1))[0] for i in range(len(res_idxs)) ],

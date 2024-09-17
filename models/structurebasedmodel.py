@@ -1,8 +1,8 @@
 import numpy as np
 
-import potentials
+from model_builder.models import potentials
 
-from model import Model
+from model_builder.models.model import Model
 
 class StructureBasedModel(Model):
 

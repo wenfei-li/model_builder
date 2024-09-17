@@ -46,7 +46,7 @@ class HarmonicBondPotential(BondPotential):
         return (r - self.r0)
 
     def __hash__(self):
-        return hash(frozenset(self.__dict__.iteritems()))
+        return hash(frozenset(self.__dict__.items()))
 
 ############################################################################
 # Angle potentials

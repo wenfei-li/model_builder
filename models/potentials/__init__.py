@@ -1,8 +1,7 @@
+from .hamiltonian import Hamiltonian
+from .sbmhamiltonian import StructureBasedHamiltonian
+from .awsemhamiltonian import AwsemHamiltonian
 
-from hamiltonian import Hamiltonian
-from sbmhamiltonian import StructureBasedHamiltonian
-from awsemhamiltonian import AwsemHamiltonian
-
-import pairwise
-import bonded
-import awsem
+from . import pairwise
+from . import bonded
+from . import awsem
